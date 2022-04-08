@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         var counter = 0
 
-        with(binding){
+        with(binding) {
             buttonCount.setOnClickListener {
                 counter++
                 showCount.text = counter.toString()
@@ -26,10 +26,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonToast.setOnClickListener {
-            val intent = Intent (this, MainActivity2::class.java)
-            intent.putExtra("COUNTER", counter )
-            intent.putExtra("GO", "Hello!")
+            val intent = Intent(this, MainActivity2::class.java).apply {
+                putExtra("GO", "Hello!")
+                putExtra("COUNTER", counter)
+            }
             startActivity(intent)
+
         }
     }
 
